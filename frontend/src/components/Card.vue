@@ -1,8 +1,9 @@
 <script setup>
+import {addItem} from "@/services/cartService";
+import {useRouter} from "vue-router";
 import {computed} from "vue";
 
-// 프로퍼티 객체
-const props = defineProps({ // ①
+const props = defineProps({
   item: {
     id: Number,
     imgPath: String,
@@ -13,18 +14,25 @@ const props = defineProps({ // ①
 });
 
 // 상품 할인가
-const computedItemDiscountPrice = computed(() => { // ②
+const computedItemDiscountPrice = computed(() => {
   return (props.item.price - (props.item.price * props.item.discountPer / 100)).toLocaleString() + '원';
 })
 
+// 라우터 객체
+const router = useRouter(); // ①
+
 // 장바구니에 상품 담기
-const put = async () => { // ③
-  window.alert("준비 중입니다.");
+const put = async () => { // ②
+  const res = await addItem(props.item.id);
+
+  if (res.status === 200 && window.confirm('장바구니에 상품을 담았습니다. 장바구니로 이동하시겠습니까?')) {
+    await router.push("/cart");
+  }
 };
 </script>
 
 <template>
-  <div class="card shadow-sm"> <!-- ④ -->
+  <div class="card shadow-sm">
     <!-- 상품 사진 출력 -->
     <span class="img" :style="{backgroundImage: `url(${props.item.imgPath})`}"
           :aria-label="`상품 사진(${props.item.name})`"></span>
@@ -48,7 +56,7 @@ const put = async () => { // ③
 
 <style lang="scss" scoped>
 .card {
-  .img { // ⑤
+  .img {
     display: inline-block;
     width: 100%;
     height: 250px;
@@ -56,7 +64,7 @@ const put = async () => { // ③
     background-position: center;
   }
 
-  .card-body .price { // ⑥
+  .card-body .price {
     text-decoration: line-through;
   }
 }
