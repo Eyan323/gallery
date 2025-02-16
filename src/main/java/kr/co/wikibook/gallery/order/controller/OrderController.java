@@ -10,29 +10,29 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import org.springframework.data.domain.Page; // ①
+import org.springframework.data.domain.Pageable; // ②
 
-@RestController // ①
-@RequestMapping("/v1") // ②
-@RequiredArgsConstructor // ③
+@RestController
+@RequestMapping("/v1")
+@RequiredArgsConstructor
 public class OrderController {
 
-    private final AccountHelper accountHelper; // ④
-    private final OrderService orderService; // ⑤
+    private final AccountHelper accountHelper;
+    private final OrderService orderService;
 
     @GetMapping("/api/orders")
-    public ResponseEntity<?> readAll(HttpServletRequest req) { // ⑥
+    public ResponseEntity<?> readAll(HttpServletRequest req, Pageable pageable) { // ③
         // 로그인 회원 아이디
         Integer memberId = accountHelper.getMemberId(req);
 
         // 주문 목록
-        List<OrderRead> orders = orderService.findAll(memberId);
-
+        Page<OrderRead> orders = orderService.findAll(memberId, pageable);
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
     @GetMapping("/api/orders/{id}")
-    public ResponseEntity<?> read(HttpServletRequest req, @PathVariable Integer id) { // ⑦
+    public ResponseEntity<?> read(HttpServletRequest req, @PathVariable Integer id) {
         // 로그인 회원 아이디
         Integer memberId = accountHelper.getMemberId(req);
 
@@ -47,7 +47,7 @@ public class OrderController {
     }
 
     @PostMapping("/api/orders")
-    public ResponseEntity<?> add(HttpServletRequest req, @RequestBody OrderRequest orderReq) { // ⑧
+    public ResponseEntity<?> add(HttpServletRequest req, @RequestBody OrderRequest orderReq) {
         // 로그인 회원 아이디
         Integer memberId = accountHelper.getMemberId(req);
 

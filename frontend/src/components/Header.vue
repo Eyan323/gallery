@@ -4,16 +4,17 @@ import {logout} from "@/services/accountService";
 import {useRouter} from "vue-router";
 
 // 계정 스토어
-const accountStore = useAccountStore(); // ①
+const accountStore = useAccountStore();
 
 // 라우터 객체
-const router = useRouter(); // ②
+const router = useRouter();
 
 // 로그아웃
-const logoutAccount = async () => { // ③
+const logoutAccount = async () => {
   const res = await logout();
 
   if (res.status === 200) {
+    accountStore.setAccessToken(""); // ①
     accountStore.setLoggedIn(false);
     await router.push("/");
   }
@@ -28,7 +29,7 @@ const logoutAccount = async () => { // ③
           <strong>Gallery</strong>
         </router-link>
         <div class="menus d-flex gap-3">
-          <template v-if="!accountStore.loggedIn">  <!-- ④ -->
+          <template v-if="!accountStore.loggedIn">
             <router-link to="/login">로그인</router-link>
             <router-link to="/join">회원가입</router-link>
           </template>

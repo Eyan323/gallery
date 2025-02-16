@@ -5,7 +5,7 @@ import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
-import kr.co.wikibook.gallery.order.dto.OrderRead; // ①
+import kr.co.wikibook.gallery.order.dto.OrderRead;
 
 @Getter
 @Entity
@@ -28,7 +28,7 @@ public class Order {
     @Column(length = 10, nullable = false)
     private String payment;
 
-    @Column(length = 16)
+    @Column(length = 50)
     private String cardNumber;
 
     @Column(nullable = false)
@@ -51,7 +51,7 @@ public class Order {
     }
 
     // 주문 조회 DTO로 변환
-    public OrderRead toRead() { // ②
+    public OrderRead toRead() {
         return OrderRead.builder()
                 .id(id)
                 .name(name)
