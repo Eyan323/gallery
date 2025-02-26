@@ -4,6 +4,9 @@ import {useRouter} from "vue-router";
 import {computed} from "vue";
 import {useAccountStore} from "@/stores/account"; // ①
 
+// 컴포넌트는 화면의 영역을 구분하여 개발할 수 있는 뷰의 기능이다.
+// 컴포넌트 기반으로 화면을 개발하게 되면 코드의 재사용성이 올라가고 빠르게 화면을 제작할 수 있어서 아주 유용함.
+
 const props = defineProps({
   item: {
     id: Number,
