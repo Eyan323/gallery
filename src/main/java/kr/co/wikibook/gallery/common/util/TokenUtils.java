@@ -16,6 +16,10 @@ import java.util.Map;
 //    created datetime default current_timestamp() not null comment '생성 일시'
 //) comment '토큰 차단';
 
+// JWT는 유저를 인증하고 식별하기 위한 토큰(Token) 기반 인증입니다.
+// 토큰 자체에 사용자의 권한 정보나 서비스를 사용하기 위한 정보가 포함됩니다.
+// RESTful과 같은 무상태(Stateless)인 환경에서 사용자 데이터를 주고받을 수 있게 됩니다.
+
 public class TokenUtils {
 
     private static final Key signKey; // ①
