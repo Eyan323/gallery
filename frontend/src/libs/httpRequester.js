@@ -1,6 +1,10 @@
 import axios from "axios";
 import {useAccountStore} from "@/stores/account"; // ①
 
+// JavaScript는 개발자가 대화식 웹 페이지를 만들기 위해 사용하는 프로그래밍 언어입니다.
+// 정적 페이지는 주로 고정된 레이아웃으로 정보를 표시했으며, 현대 웹 사이트에서 기대하는 기능을 모두 수행하지는 못했습니다. 
+// JavaScript는 웹 애플리케이션을 보다 동적으로 만드는 브라우저 측 기술로 등장. 이는 매우 중요한 역할이라 할수있음
+
 const instance = axios.create();
 
 // 인터셉터(응답 시)
