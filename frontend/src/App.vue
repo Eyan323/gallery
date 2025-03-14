@@ -6,6 +6,9 @@ import {watch} from "vue";
 import {useRoute} from "vue-router";
 import {check} from "@/services/accountService"; // ①
 
+// vue 는 뛰어난 성능, 직관적 문법, 낮은 진압장벽으로 가장 인기있는 프론트엔드 프레임워크중 하나이다.
+// 특히 vue3 버전은 이전 버전보다 비약적인 성능향이 있었다. 번들 크기 감소, 렌더링 속도 향상, 메모리 사용량 감소에서 대폭적인 성능업이 있었다.
+
 // 계정 스토어
 const accountStore = useAccountStore();
 
