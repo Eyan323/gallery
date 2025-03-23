@@ -8,11 +8,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service // ①
-@RequiredArgsConstructor // ②
+@Service
+@RequiredArgsConstructor
 public class BaseItemService implements ItemService {
 
-    private final ItemRepository itemRepository; // ③
+    // 서비스에서 인터페이스와 클래스를 구분하는 이유는, 객체간 의존성을 약하게 하고 느슨한 결합성을 유지하기 위해서이다.
+
+
+    private final ItemRepository itemRepository;
 
     // 전체 상품 목록 조회
     @Override

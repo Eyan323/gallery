@@ -28,6 +28,7 @@ public class Member {
 
     @Column(length = 50, nullable = false, unique = true)
     private String loginId;
+    // 아이디 중복 생성 방지를 위해, 고유 제약 조건(unique)설정
 
     @Column(length = 64, nullable = false)
     private String loginPw;
@@ -38,6 +39,8 @@ public class Member {
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
     private LocalDateTime created;
+    // 최초 입력 값 후에 수정불가(updatable = false)
+    // @CreationTimestamp 애너테이션으로 데이터 삽입 시에 값이 없으면 현재 시각이 들어가게 한다.
 
     public Member(){
     }

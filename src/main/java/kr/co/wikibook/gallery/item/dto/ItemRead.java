@@ -3,13 +3,13 @@ package kr.co.wikibook.gallery.item.dto;
 import lombok.Builder;
 import lombok.Getter;
 
-@Getter // ①
-@Builder // ②
+@Getter
+@Builder
 public class ItemRead {
 
-    private Integer id; // ③
-    private String name; // ④
-    private String imgPath; // ⑤
-    private Integer price; // ⑥
-    private Integer discountPer; // ⑦
+    private Integer id;
+    private String name;
+    private String imgPath;
+    private Integer price;
+    private Integer discountPer;
 }

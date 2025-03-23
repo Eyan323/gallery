@@ -54,7 +54,6 @@ public class Item {
     @CreationTimestamp
     private LocalDateTime created;
 
-    // 상품 조회 DTO로 변환
     public ItemRead toRead() { // ②
         return ItemRead.builder()
                 .id(id)
@@ -64,4 +63,7 @@ public class Item {
                 .discountPer(discountPer)
                 .build();
     }
+    // 엔티티 객체를 DTO로 변환하는 메서드.
+    // 빌더를 활용해 필드의 값을 간편하기 초기화 후 객체를 생성한다.
+
 }
