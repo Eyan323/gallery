@@ -2,9 +2,9 @@ package kr.co.wikibook.gallery.account.dto;
 
 import lombok.Getter;
 
-@Getter // ①
+@Getter
 public class AccountLoginRequest {
 
-    private String loginId; // ②
-    private String loginPw; // ③
+    private String loginId;
+    private String loginPw;
 }

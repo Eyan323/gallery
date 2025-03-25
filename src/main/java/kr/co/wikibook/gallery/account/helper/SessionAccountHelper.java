@@ -11,21 +11,21 @@ import kr.co.wikibook.gallery.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@Component // ①
-@RequiredArgsConstructor // ②
+@Component
+@RequiredArgsConstructor
 public class SessionAccountHelper implements AccountHelper {
 
-    private final MemberService memberService; // ③
+    private final MemberService memberService;
 
     // 회원가입
     @Override
-    public void join(AccountJoinRequest joinReq) { // ④
+    public void join(AccountJoinRequest joinReq) {
         memberService.save(joinReq.getName(), joinReq.getLoginId(), joinReq.getLoginPw());
     }
 
     // 로그인
     @Override
-    public String login(AccountLoginRequest loginReq, HttpServletRequest req, HttpServletResponse res) { // ④
+    public String login(AccountLoginRequest loginReq, HttpServletRequest req, HttpServletResponse res) {
         Member member = memberService.find(loginReq.getLoginId(), loginReq.getLoginPw());
 
         // 회원 데이터가 없으면
@@ -39,7 +39,7 @@ public class SessionAccountHelper implements AccountHelper {
 
     // 회원 아이디 조회
     @Override
-    public Integer getMemberId(HttpServletRequest req) { // ④
+    public Integer getMemberId(HttpServletRequest req) {
         Object memberId = HttpUtils.getSessionValue(req, AccountConstants.MEMBER_ID_NAME);
 
         if (memberId != null) {
@@ -51,13 +51,13 @@ public class SessionAccountHelper implements AccountHelper {
 
     // 로그인 여부 확인
     @Override
-    public boolean isLoggedIn(HttpServletRequest req) { // ④
+    public boolean isLoggedIn(HttpServletRequest req) {
         return getMemberId(req) != null;
     }
 
     // 로그아웃
     @Override
-    public void logout(HttpServletRequest req, HttpServletResponse res) { // ④
+    public void logout(HttpServletRequest req, HttpServletResponse res) {
         HttpUtils.removeSession(req, AccountConstants.MEMBER_ID_NAME);
     }
 }
