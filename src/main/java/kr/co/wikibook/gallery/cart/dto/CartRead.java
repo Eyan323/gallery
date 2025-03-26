@@ -3,8 +3,8 @@ package kr.co.wikibook.gallery.cart.dto;
 import lombok.Builder;
 import lombok.Getter;
 
-@Getter // ①
-@Builder  // ②
+@Getter
+@Builder
 public class CartRead {
 
     private Integer id; // ③

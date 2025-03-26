@@ -14,17 +14,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController // ①
-@RequestMapping("/v1") // ②
-@RequiredArgsConstructor // ③
+@RestController
+@RequestMapping("/v1")
+@RequiredArgsConstructor
 public class CartController {
 
-    private final CartService cartService; // ④
-    private final ItemService itemService; // ⑤
-    private final AccountHelper accountHelper; // ⑥
+    private final CartService cartService;
+    private final ItemService itemService;
+    private final AccountHelper accountHelper;
 
     @GetMapping("/api/cart/items")
-    public ResponseEntity<?> readAll(HttpServletRequest req) { // ⑦
+    public ResponseEntity<?> readAll(HttpServletRequest req) {
         // 로그인 회원 아이디
         Integer memberId = accountHelper.getMemberId(req);
 
@@ -39,7 +39,7 @@ public class CartController {
     }
 
     @PostMapping("/api/carts")
-    public ResponseEntity<?> push(HttpServletRequest req, @RequestBody CartRequest cartReq) { // ⑧
+    public ResponseEntity<?> push(HttpServletRequest req, @RequestBody CartRequest cartReq) {
         // 로그인 회원 아이디
         Integer memberId = accountHelper.getMemberId(req);
 
@@ -55,7 +55,7 @@ public class CartController {
     }
 
     @DeleteMapping("/api/cart/items/{itemId}")
-    public ResponseEntity<?> remove(HttpServletRequest req, @PathVariable("itemId") Integer itemId) { // ⑨
+    public ResponseEntity<?> remove(HttpServletRequest req, @PathVariable("itemId") Integer itemId) {
         // 로그인 회원 아이디
         Integer memberId = accountHelper.getMemberId(req);
 

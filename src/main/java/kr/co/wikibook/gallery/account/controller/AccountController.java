@@ -26,13 +26,14 @@ public class AccountController {
 
     private final AccountHelper accountHelper;
     private final BlockService blockService;
-    private final MemberService memberService; // ②
+    private final MemberService memberService;
 
     @PostMapping("/api/account/join")
     public ResponseEntity<?> join(@RequestBody AccountJoinRequest joinReq) {
         // 입력 값이 비어 있다면
         if (!StringUtils.hasLength(joinReq.getName()) || !StringUtils.hasLength(joinReq.getLoginId()) || !StringUtils.hasLength(joinReq.getLoginPw())) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            //
         }
 
         // 중복 로그인 아이디가 있으면
