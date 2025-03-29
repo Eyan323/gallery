@@ -8,16 +8,16 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Getter // ①
-@Setter // ②
-@Builder // ③
+@Getter
+@Setter
+@Builder
 public class OrderRead {
 
-    private Integer id; // ④
-    private String name; // ⑤
-    private String address; // ⑥
-    private String payment; // ⑦
-    private Long amount; // ⑧
-    private LocalDateTime created; // ⑨
-    private List<ItemRead> items; // ⑩
+    private Integer id;
+    private String name;
+    private String address;
+    private String payment;
+    private Long amount;
+    private LocalDateTime created;
+    private List<ItemRead> items;
 }

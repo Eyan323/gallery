@@ -6,19 +6,19 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Getter // ①
-@Setter // ②
+@Getter
+@Setter
 public class OrderRequest {
 
-    private String name; // ③
-    private String address; // ④
-    private String payment; // ⑤
-    private String cardNumber; // ⑥
-    private Long amount; // ⑦
-    private List<Integer> itemIds; // ⑧
+    private String name;
+    private String address;
+    private String payment;
+    private String cardNumber;
+    private Long amount;
+    private List<Integer> itemIds;
 
     // 엔티티 객체로 변환
-    public Order toEntity(Integer memberId) { // ⑨
+    public Order toEntity(Integer memberId) {
         return new Order(memberId, name, address, payment, cardNumber, amount);
     }
 }

@@ -22,11 +22,14 @@ const logoutAccount = async () => {
 </script>
 
 <template>
+  <!--뷰 템플릿이란 HTML, CSS 등의 마크업 속성과 뷰 인스턴스에서 정의한 데이터 및 로직들을 연결하여 사용자가 브라우저에서 볼 수 있는 형태의 HTML로 변환해주는 속성 -->
+  <!--간단하게 뷰에서 화면을 담당하는 기술로 여기에 변수를 삽입하여 각자 다른 페이지를 보여주는 기술-->
   <header>
     <div class="navbar navbar-dark bg-dark text-white shadow-sm">
       <div class="container">
         <router-link to="/" class="navbar-brand">
           <strong>Gallery</strong>
+          <!--메인으로 이동하는 경로의 라우터 링크 요소-->
         </router-link>
         <div class="menus d-flex gap-3">
           <template v-if="!accountStore.loggedIn">

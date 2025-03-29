@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable; // ②
 public interface OrderService {
 
     // 주문 목록 조회
-    Page<OrderRead> findAll(Integer memberId, Pageable pageable); // ③
+    Page<OrderRead> findAll(Integer memberId, Pageable pageable);
 
     // 주문 상세 조회
     OrderRead find(Integer id, Integer memberId);
