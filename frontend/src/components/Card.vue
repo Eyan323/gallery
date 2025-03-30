@@ -42,6 +42,7 @@ const put = async () => { // ③
 
   if (res.status === 200 && window.confirm('장바구니에 상품을 담았습니다. 장바구니로 이동하시겠습니까?')) {
     await router.push("/cart");
+    // 장바구니에 상품 추가시 페이지 이동 여부 확인 창을 표시, 확인버튼 클릭후 장바구니 페이지로 이동
   }
 };
 </script>
