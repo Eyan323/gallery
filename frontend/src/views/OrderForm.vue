@@ -145,6 +145,7 @@ const submit = async () => {
           <div class="pt-1" v-if="state.form.payment === 'card'">
             <label for="cardNum" class="form-label">카드 번호</label>
             <input type="text" class="form-control p-3" id="cardNum" v-model="state.form.cardNumber">
+            <!--v-model : 양방향 바인딩 데릭티브 명령어-->
           </div>
         </div>
       </div>
