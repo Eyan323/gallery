@@ -16,26 +16,26 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
-@Service // ①
-@Primary // ②
-@RequiredArgsConstructor // ③
+@Service
+@Primary // 구현체 우선순위를 선정하는 애너테이션, 이 구현체를 우선적으로 의존성 주입
+@RequiredArgsConstructor
 public class TokenAccountHelper implements AccountHelper {
 
-    private final MemberService memberService; // ④
-    private final BlockService blockService; // ⑤
+    private final MemberService memberService;
+    private final BlockService blockService;
 
     // 액세스 토큰 조회
-    private String getAccessToken(HttpServletRequest req) { // ⑥
+    private String getAccessToken(HttpServletRequest req) {
         return HttpUtils.getBearerToken(req);
     }
 
     // 리프레시 토큰 조회
-    private String getRefreshToken(HttpServletRequest req) { // ⑦
+    private String getRefreshToken(HttpServletRequest req) {
         return HttpUtils.getCookieValue(req, AccountConstants.REFRESH_TOKEN_NAME);
     }
 
     // 회원 아이디 조회
-    private Integer getMemberId(String token) { // ⑧
+    private Integer getMemberId(String token) {
         if (TokenUtils.isValid(token)) {
             Map<String, Object> tokenBody = TokenUtils.getBody(token);
             return (Integer) tokenBody.get(AccountConstants.MEMBER_ID_NAME);

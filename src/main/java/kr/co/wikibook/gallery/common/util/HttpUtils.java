@@ -29,12 +29,14 @@ public class HttpUtils {
 
     // 쿠키 입력
     public static void setCookie(HttpServletResponse res, String name, String value, int expSeconds) {
-        Cookie cookie = new Cookie(name, value);
-        cookie.setHttpOnly(true);
+        Cookie cookie = new Cookie(name, value); // 이름, 값으로 쿠키 생성
+        cookie.setHttpOnly(true); // HttpOnly 참으로 설정하여 해당 쿠키는 서버에서만 접근가능
         cookie.setPath("/");
 
         if (expSeconds > 0) {
             cookie.setMaxAge(expSeconds);
+            // 매개변수로 받은 유효 시간의 값이 0 이하면 유효 시간을 지정하지 않음.
+            // 이 방법으로 웹 브라우저가 종료시 쿠키도 삭제
         }
 
         res.addCookie(cookie);

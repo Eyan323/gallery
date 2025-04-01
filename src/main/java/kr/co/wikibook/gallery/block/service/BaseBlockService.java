@@ -5,11 +5,11 @@ import kr.co.wikibook.gallery.block.repository.BlockRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service // ①
-@RequiredArgsConstructor // ②
+@Service
+@RequiredArgsConstructor
 public class BaseBlockService implements BlockService {
 
-    private final BlockRepository blockRepository; // ③
+    private final BlockRepository blockRepository;
 
     // 토큰 차단 데이터 삽입
     @Override

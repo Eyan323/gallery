@@ -8,7 +8,7 @@ export const useAccountStore = defineStore("account", {
     state: () => ({
         checked: false,
         loggedIn: false,
-        accessToken: "", // ①
+        accessToken: "", // 엑세스 토큰 프로퍼티, 데이터 타입은 문자열
     }),
     actions: {
         setChecked(val) {
