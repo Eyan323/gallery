@@ -16,7 +16,7 @@ instance.interceptors.response.use((res) => {
             window.alert("잘못된 요청입니다.");
             break;
 
-        case 401: // ②
+        case 401:
             const config = err.config;
 
             if (config.retried) { // 재요청 여부
@@ -55,7 +55,7 @@ instance.interceptors.response.use((res) => {
 });
 
 // HTTP 요청 설정 생성
-const generateConfig = () => { // ③
+const generateConfig = () => {
     // 계정 스토어
     const accountStore = useAccountStore();
 
@@ -69,18 +69,18 @@ const generateConfig = () => { // ③
 };
 
 export default {
-    get(url, params) { // ④
+    get(url, params) {
         const config = generateConfig();
         config.params = params;
         return instance.get(url, config);
     },
-    post(url, params) { // ⑤
+    post(url, params) {
         return instance.post(url, params, generateConfig());
     },
-    put(url, params) { // ⑥
+    put(url, params) {
         return instance.put(url, params, generateConfig());
     },
-    delete(url) { // ⑦
+    delete(url) {
         return instance.delete(url, generateConfig());
     },
 };

@@ -12,6 +12,9 @@ public class HashUtils {
     public static String generateSalt(int size) { // ①
         char[] resultArr = new char[size];
         Random random = new Random();
+        // 솔트란? 단순히 데이터를 해싱하면 결과값은 같아진다. a1234를 동일하게 패스워드로 사용하는 사용자가 3명이라면 3명다 같은 값이 나온다.
+        // 이를 방지하기 위해 원본 데이터에 랜덤한 문자열을 추가하는것을 솔트라고 한다.
+        // 주로 16바이트 이상의 긴 솔트 문자열을 추가하여 해싱하기 때문에 원본 값을 찾는건 사실상 불가능에 가깝다.
 
         // 랜덤한 문자열을 만들기 위한 문자열
         String options = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz" + "1234567890" + "!@#$%^&*()";

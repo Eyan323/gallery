@@ -6,10 +6,10 @@ import java.util.Base64;
 
 public class EncryptionUtils {
 
-    private static final String ALGORITHM = "AES"; // ①
-    private static final String SECRET_KEY = "a72ha@61@16213iu"; // ②
+    private static final String ALGORITHM = "AES";
+    private static final String SECRET_KEY = "a72ha@61@16213iu";
 
-    public static String encrypt(String value) { // ③
+    public static String encrypt(String value) {
         try {
             SecretKeySpec key = new SecretKeySpec(SECRET_KEY.getBytes(), ALGORITHM);
             Cipher cipher = Cipher.getInstance(ALGORITHM);
@@ -21,7 +21,7 @@ public class EncryptionUtils {
         }
     }
 
-    public static String decrypt(String value) { // ④
+    public static String decrypt(String value) {
         try {
             SecretKeySpec key = new SecretKeySpec(SECRET_KEY.getBytes(), ALGORITHM);
             Cipher cipher = Cipher.getInstance(ALGORITHM);
