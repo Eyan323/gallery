@@ -40,6 +40,7 @@ public class HashUtils {
 
             // 바이트 배열을 Base64로 인코딩해서 반환
             return Base64.getEncoder().encodeToString(hashBytes);
+            // Base64 이진 데이터를 텍스트 데이터로 인코딩 할 때 사용하는 방식.
         } catch (NoSuchAlgorithmException ex) {
             throw new RuntimeException("해싱 중 오류가 발생했습니다.");
         }
