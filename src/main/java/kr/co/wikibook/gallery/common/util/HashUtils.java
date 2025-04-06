@@ -31,6 +31,8 @@ public class HashUtils {
         try {
             // SHA-256 알고리즘 사용
             MessageDigest md = MessageDigest.getInstance("SHA-256");
+            // SHA-256 해시 함수는 어떤 길이의 값을 입력하더라도 256비트의 고정된 결과값을 출력.
+            // 일반적으로 입력값이 조금만 변동하여도 출력값이 완전히 달라지기 때문에 출력값을 토대로 입력값을 유추하는 것은 거의 불가능함.
 
             // 원본 값과 솔트 합치기
             String passwordSalted = value + salt;
