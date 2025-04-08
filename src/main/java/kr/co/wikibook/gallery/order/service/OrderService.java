@@ -3,8 +3,8 @@ package kr.co.wikibook.gallery.order.service;
 import kr.co.wikibook.gallery.order.dto.OrderRequest;
 import kr.co.wikibook.gallery.order.dto.OrderRead;
 
-import org.springframework.data.domain.Page; // ①
-import org.springframework.data.domain.Pageable; // ②
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface OrderService {
 

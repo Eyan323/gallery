@@ -12,6 +12,7 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     // 주문 목록 조회
     Page<Order> findAllByMemberIdOrderByIdDesc(Integer memberId, Pageable pageable);
+    // pageable 객체에는 페이지의 번호를 나타내는 page와 페이지당 데이터 개수를 나타내는 size 등의 필드가 있다.
 
     // 주문 정보 조회(특정 아이디 및 특정 회원)
     Optional<Order> findByIdAndMemberId(Integer id, Integer memberId);

@@ -9,7 +9,7 @@ import java.util.Base64;
 public class HashUtils {
 
     // 솔트 생성
-    public static String generateSalt(int size) { // ①
+    public static String generateSalt(int size) {
         char[] resultArr = new char[size];
         Random random = new Random();
         // 솔트란? 단순히 데이터를 해싱하면 결과값은 같아진다. a1234를 동일하게 패스워드로 사용하는 사용자가 3명이라면 3명다 같은 값이 나온다.
@@ -27,7 +27,7 @@ public class HashUtils {
     }
 
     // 해시 데이터 생성
-    public static String generateHash(String value, String salt) { // ②
+    public static String generateHash(String value, String salt) {
         try {
             // SHA-256 알고리즘 사용
             MessageDigest md = MessageDigest.getInstance("SHA-256");

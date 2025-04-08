@@ -10,8 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.data.domain.Page; // ①
-import org.springframework.data.domain.Pageable; // ②
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @RestController
 @RequestMapping("/v1")
@@ -22,7 +22,7 @@ public class OrderController {
     private final OrderService orderService;
 
     @GetMapping("/api/orders")
-    public ResponseEntity<?> readAll(HttpServletRequest req, Pageable pageable) { // ③
+    public ResponseEntity<?> readAll(HttpServletRequest req, Pageable pageable) {
         // 로그인 회원 아이디
         Integer memberId = accountHelper.getMemberId(req);
 

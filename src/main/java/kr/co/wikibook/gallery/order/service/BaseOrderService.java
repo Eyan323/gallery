@@ -18,8 +18,8 @@ import java.util.Optional;
 
 import kr.co.wikibook.gallery.common.util.EncryptionUtils;
 
-import org.springframework.data.domain.Page; // ①
-import org.springframework.data.domain.Pageable; // ②
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Service
 @RequiredArgsConstructor
@@ -32,7 +32,7 @@ public class BaseOrderService implements OrderService {
 
     // 주문 목록 조회
     @Override
-    public Page<OrderRead> findAll(Integer memberId, Pageable pageable) { // ③
+    public Page<OrderRead> findAll(Integer memberId, Pageable pageable) {
         Page<Order> orders = orderRepository.findAllByMemberIdOrderByIdDesc(memberId, pageable);
         return orders.map(Order::toRead);
     }

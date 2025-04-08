@@ -37,7 +37,7 @@ public class AccountController {
         }
 
         // 중복 로그인 아이디가 있으면
-        if (memberService.find(joinReq.getLoginId()) != null) { // ③
+        if (memberService.find(joinReq.getLoginId()) != null) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
 
