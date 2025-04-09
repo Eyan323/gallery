@@ -11,9 +11,9 @@ const state = reactive({
   },
   // 페이지네이션
   page: { // ②
-    index: 0,
-    totalPages: 0,
-    totalElements: 0,
+    index: 0, // 현재 페이지 인덱스
+    totalPages: 0, // 총 페이지
+    totalElements: 0, // 총 주문 데이터 개수
   },
   orders: []
 });
@@ -26,7 +26,7 @@ const getListNum = (idx) => { // ③
 
 // 데이터 로드
 const load = async (pageIdx) => { // ④
-                                  // 매개변수(페이지 인덱스)가 있으면 args 객체 업데이트
+  // 매개변수(페이지 인덱스)가 있으면 args 객체 업데이트
   if (pageIdx !== undefined) {
     state.args.page = pageIdx;
   }
