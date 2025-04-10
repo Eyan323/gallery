@@ -9,6 +9,11 @@ public class HttpUtils {
     // 세션 입력
     public static void setSession(HttpServletRequest req, String key, Object value) {
         req.getSession().setAttribute(key, value);
+
+        // HttpServletRequest 자바 서블릿 API, 클라이언트가 서버에 보낸 HTTP 요청
+        // 매개변수, 헤더, 쿠키 및 세션 정보가 같은 세부정보가 캡슐화되어 담겨있다.
+        // 클라이언트에서 서버로 요청이 발생했을때, 이 객체를 통하여 개발자는 요청에 포함된 데이터를 읽고 분석한다.
+
         // 세션 생성 메서드, 매개변수로 HTTP 요청객체, 세션키, 세션의 값을 받는다.
         // 로그인에 성공한 사용자의 정보를 저장할때 사용한다.
     }
