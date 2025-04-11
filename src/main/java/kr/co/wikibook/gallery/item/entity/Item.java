@@ -5,7 +5,7 @@ import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
-import kr.co.wikibook.gallery.item.dto.ItemRead; // ①
+import kr.co.wikibook.gallery.item.dto.ItemRead;
 
 //create table items (
 //    id           int auto_increment comment '아이디' primary key,
@@ -54,7 +54,7 @@ public class Item {
     @CreationTimestamp
     private LocalDateTime created;
 
-    public ItemRead toRead() { // ②
+    public ItemRead toRead() {
         return ItemRead.builder()
                 .id(id)
                 .name(name)
