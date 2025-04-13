@@ -4,7 +4,7 @@ import Footer from "@/components/Footer.vue";
 import {useAccountStore} from "@/stores/account";
 import {watch} from "vue";
 import {useRoute} from "vue-router";
-import {check} from "@/services/accountService"; // ①
+import {check} from "@/services/accountService";
 
 // vue 는 뛰어난 성능, 직관적 문법, 낮은 진압장벽으로 가장 인기있는 프론트엔드 프레임워크중 하나이다.
 // 특히 vue3 버전은 이전 버전보다 비약적인 성능향상을 보여줌. 번들 크기 감소, 렌더링 속도 향상, 메모리 사용량 감소에서 대폭적인 성능업
@@ -39,7 +39,7 @@ const checkAccount = async () => {
 // 라우트 경로가 바뀔 때마다 로그인 여부를 확인
 watch(() => route.path, () => {
   checkAccount();
-  // 특정 값이 변할 때 실행되는 감시자. route.path 변경시 로그인 여부 확인을 위한 checkAccount 메서드를 호출
+  // watch: 특정 값이 변할 때 실행되는 감시자. route.path 변경시 로그인 여부 확인을 위한 checkAccount 메서드를 호출
 });
 </script>
 
@@ -50,6 +50,7 @@ watch(() => route.path, () => {
     <main>
       <!-- 라우터 뷰 -->
       <router-view></router-view>
+      <!-- 라우터 뷰: URL 경로에 따라 동적으로 콘텐츠가 바뀔 수 있는 요소-->
     </main>
     <Footer/>
   </template>
