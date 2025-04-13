@@ -7,6 +7,6 @@ import lombok.Getter;
 @Builder
 public class CartRead {
 
-    private Integer id; // ③
-    private Integer itemId; // ④
+    private Integer id;
+    private Integer itemId;
 }

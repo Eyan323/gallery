@@ -31,6 +31,9 @@ const checkAccount = async () => {
 (async function onCreated() {
   await checkAccount();
   // 컴포넌트 라이프사이클 훅 중 가장 먼저 실행되는 생성 훅
+  // async는 비동기 함수의 선언, await는 Promise가 처리될때 까지 기다리는것.
+  // 즉 Promise 기반 비동기 코드를 동기처럼 보이고 처리 가능하게 할때 작성하는 코드.
+
 })();
 
 // 라우트 경로가 바뀔 때마다 로그인 여부를 확인

@@ -42,7 +42,7 @@ public class Cart {
     }
 
     // 장바구니 조회 DTO로 변환
-    public CartRead toRead() { // ②
+    public CartRead toRead() {
         return CartRead.builder()
                 .id(id)
                 .itemId(itemId)

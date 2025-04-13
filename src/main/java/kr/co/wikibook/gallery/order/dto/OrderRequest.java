@@ -20,5 +20,6 @@ public class OrderRequest {
     // 엔티티 객체로 변환
     public Order toEntity(Integer memberId) {
         return new Order(memberId, name, address, payment, cardNumber, amount);
+        // 이 메서드는 추후 주문 서비스에서 주문 데이터를 저장할 때 사용.
     }
 }
