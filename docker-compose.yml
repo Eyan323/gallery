@@ -1,0 +1,40 @@
+# docker-compose 파일은 여러개의 컨테이너를 한번에 설정하고 실행(빌드)하게 도와주는 도구
+
+
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:10.5
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: gallerydb
+      MYSQL_USER: galleryuser
+      MYSQL_PASSWORD: gallerypass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - gallery-net
+
+  app:
+    build: .
+    container_name: gallery-app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://db:3306/gallerydb
+      SPRING_DATASOURCE_USERNAME: galleryuser
+      SPRING_DATASOURCE_PASSWORD: gallerypass
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - gallery-net
+
+volumes:
+  db-data:
+
+networks:
+  gallery-net:
