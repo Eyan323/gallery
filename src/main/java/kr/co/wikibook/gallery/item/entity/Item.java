@@ -21,7 +21,10 @@ import kr.co.wikibook.gallery.item.dto.ItemRead;
 
 @Getter
 @Entity
+// @Entity 애너테이션은 반드시 명시해야한다 없으면 JPA가 엔티티로 인식하지 않고 테이블도 만들지 않음
 @Table(name = "items")
+// @Table 애너테이션은 반드시 명시하지 않아도 괜찮으나, 가독성과 명확성을 위해 명시하는 경우가 많다.
+// 명시하지 않을시 클래스 이름과 매칭한다. 
 public class Item {
 
     @Id
