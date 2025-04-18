@@ -18,7 +18,7 @@ public class BaseItemService implements ItemService {
 
     // 전체 상품 목록 조회
     @Override
-    public List<ItemRead> findAll() { // ④
+    public List<ItemRead> findAll() {
         return itemRepository.findAll().stream().map(Item::toRead).toList();
         // stream: 기존의 배열에 사용하는 for, foreach 같은 반복문은 하나씩 핸들링 하는 방식이기에 로직이 복잡할수록 코드양이 많아진다.
         // 이에 자바8부터 지원하는 간단하게 람다식으로 코드를 표현하기 위한 방법
