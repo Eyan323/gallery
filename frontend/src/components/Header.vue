@@ -34,10 +34,12 @@ const logoutAccount = async () => {
         </router-link>
         <div class="menus d-flex gap-3">
           <template v-if="!accountStore.loggedIn">
+            <!-- 사용자가 로그인 하지 않은 상태라면-->
             <router-link to="/login">로그인</router-link>
             <router-link to="/join">회원가입</router-link>
           </template>
           <template v-else>
+            <!--사용자가 로그인 한 상태라면-->
             <a @click="logoutAccount()">로그아웃</a>
             <router-link to="/orders">주문 내역</router-link>
             <router-link to="/cart">장바구니</router-link>

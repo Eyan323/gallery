@@ -14,7 +14,7 @@ const state = reactive({
 
   if (res.status === 200) {
     state.items = res.data;
-    // 상품 서비스 상품 목록 조회 getItems 메서드를 호출, 리턴 데이터를 items에 입력
+    // 상품 서비스 상품 목록 조회 getItems 메서드를 호출, 리턴 데이터를 items 입력
   }
 })();
 </script>
