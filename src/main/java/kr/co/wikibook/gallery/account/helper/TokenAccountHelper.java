@@ -46,13 +46,13 @@ public class TokenAccountHelper implements AccountHelper {
 
     // 회원가입
     @Override
-    public void join(AccountJoinRequest joinReq) { // ⑨
+    public void join(AccountJoinRequest joinReq) {
         memberService.save(joinReq.getName(), joinReq.getLoginId(), joinReq.getLoginPw());
     }
 
     // 로그인
     @Override
-    public String login(AccountLoginRequest loginReq, HttpServletRequest req, HttpServletResponse res) { // ⑨
+    public String login(AccountLoginRequest loginReq, HttpServletRequest req, HttpServletResponse res) {
         Member member = memberService.find(loginReq.getLoginId(), loginReq.getLoginPw());
 
         // 회원 데이터가 없으면
@@ -77,14 +77,14 @@ public class TokenAccountHelper implements AccountHelper {
 
     // 회원 아이디 조회
     @Override
-    public Integer getMemberId(HttpServletRequest req) { // ⑨
+    public Integer getMemberId(HttpServletRequest req) {
         // 액세스 토큰으로 회원 아이디 조회
         return this.getMemberId(getAccessToken(req));
     }
 
     // 로그인 여부 확인
     @Override
-    public boolean isLoggedIn(HttpServletRequest req) { // ⑨
+    public boolean isLoggedIn(HttpServletRequest req) {
         // 액세스 토큰이 유효하다면
         if (TokenUtils.isValid((getAccessToken(req)))) {
             return true;
@@ -99,7 +99,7 @@ public class TokenAccountHelper implements AccountHelper {
 
     // 로그아웃
     @Override
-    public void logout(HttpServletRequest req, HttpServletResponse res) { // ⑨
+    public void logout(HttpServletRequest req, HttpServletResponse res) {
         // 리프레시 토큰 조회
         String refreshToken = getRefreshToken(req);
 
