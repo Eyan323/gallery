@@ -36,7 +36,7 @@ public class HttpUtils {
     public static void setCookie(HttpServletResponse res, String name, String value, int expSeconds) {
         Cookie cookie = new Cookie(name, value); // 이름, 값으로 쿠키 생성
         cookie.setHttpOnly(true); // HttpOnly 참으로 설정하여 해당 쿠키는 서버에서만 접근가능
-        cookie.setPath("/");
+        cookie.setPath("/"); // 유효범위 경로 설정, "/": 기본 경로로 애플리케이션 모든 경로에서 사용가능
 
         if (expSeconds > 0) {
             cookie.setMaxAge(expSeconds);

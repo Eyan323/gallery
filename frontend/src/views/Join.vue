@@ -20,6 +20,8 @@ const submit = async () => {
   if (!state.form.name?.trim()) {
     window.alert("이름을 입력해주세요.");
     document.getElementById("name")?.focus();
+    // ?의 의미는: 옵셔널 체이닝 연산자, 앞의 표현식에 null 또는 undefined 확인.
+    // 이 연산자가 없으면 null 발생시 .focus() 함수는 에러를 발생시키기 때문(null 값에는 focus() 함수가 없다)
     return;
   } else if (!state.form.loginId?.trim()) {
     window.alert("이메일을 입력해주세요.");
