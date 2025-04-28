@@ -20,7 +20,10 @@ const state = reactive({
 
 // 최종 결제 금액
 const computedTotalPrice = computed(() => {
+  // computed: 일반적인 methods는 호출할때 마다 계산되지만, computed는 결과값을 캐싱, 사용하므로 효율적이다.
+
   let result = 0;
+
 
   state.items.forEach((i) => {
     result += i.price - i.price * i.discountPer / 100;
@@ -56,6 +59,8 @@ const submit = async () => {
   }
 
   state.form.itemIds = state.items.map(i => i.id);
+  // map()은 각 배열의 요소를 순회하면서 지정된 함수의 반환값을 기반으로 새 배열을 생성.
+  // i => i.id는 화살표 함수로, 각 요소 i의 id만 추출해서 배열을 만듬
   const res = await addOrder(state.form);
 
   if (res.status === 200) {
@@ -67,6 +72,7 @@ const submit = async () => {
     }
 
     window.alert(messages.join("\n"));
+    // join(): 기존 메세지에 \n(줄바꿈)을 포함해서 출력하는것
     await router.push("/");
   }
 };
