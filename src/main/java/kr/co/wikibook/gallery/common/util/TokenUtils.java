@@ -18,7 +18,7 @@ import java.util.Map;
 
 // JWT는 유저를 인증하고 식별하기 위한 토큰(Token) 기반 인증.
 // 토큰 자체에 사용자의 권한 정보나 서비스를 사용하기 위한 정보가 포함.
-// RESTful과 같은 무상태(Stateless)인 환경에서 사용자 데이터를 주고받을 수 있게 됩니다.
+// RESTful과 같은 무상태(Stateless)인 환경에서 사용자 데이터를 주고받을 수 있음.
 // 토큰은 서버가 아닌 클라이언트에 저장, 서버의 부담을 줄이며, 서버가 재시작되어도 클라이언트 상태 유지가 가능.
 
 public class TokenUtils {
@@ -26,14 +26,15 @@ public class TokenUtils {
     private static final Key signKey;
 
     static {
-        // 외부에 노출되면 안 되는 중요한 보안 키(32바이트 이상)
         String secretKey = "SECURITY_KEY_2023042319572107_!!";
+        // 외부에 노출되면 안 되는 중요한 보안 키(32바이트 이상)
+        // 실제 서비스에서는 절대 노출되면 안된다.
         byte[] secretKeyBytes = secretKey.getBytes(StandardCharsets.UTF_8);
         signKey = new SecretKeySpec(secretKeyBytes, SignatureAlgorithm.HS256.getJcaName());
     }
 
     // 토큰 발급
-    public static String generate(String subject, String name, Object value, int expMinutes) { // ③
+    public static String generate(String subject, String name, Object value, int expMinutes) {
         // 만료 시간 설정
         Date expTime = new Date();
 
@@ -42,12 +43,14 @@ public class TokenUtils {
 
         // 기본 정보 입력
         HashMap<String, Object> headerMap = new HashMap<>();
-        headerMap.put("typ", "JWT");
-        headerMap.put("alg", "HS256");
+        headerMap.put("typ", "JWT"); // 토큰의 타입
+        headerMap.put("alg", "HS256"); // 사용하는 알고리즘
 
         // 클레임 입력
         HashMap<String, Object> claims = new HashMap<>();
         claims.put(name, value);
+        // 클레임은 JWT의 페이로드(본문)에 포함될 데이터
+        // 일반적으로 토큰에 담길 사용자 정보나 권한 정보 포함
 
         // 토큰 발급
         JwtBuilder builder = Jwts.builder()
