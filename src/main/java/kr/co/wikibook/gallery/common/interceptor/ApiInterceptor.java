@@ -21,7 +21,9 @@ public class ApiInterceptor implements HandlerInterceptor {
         // URL 통한 잘못된 접근을 인터셉터로 미리 차단한다.
         if (accountHelper.getMemberId(req) == null) {
             res.setStatus(401);
+            // HTTP401: Unauthorized(인증되지 않음)
             return false;
+            // 컨트롤러로의 요청 중단
         }
 
         return true;

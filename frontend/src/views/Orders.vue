@@ -5,12 +5,12 @@ import {getOrders} from "@/services/orderService";
 // 반응형 상태
 const state = reactive({
   // HTTP 인수
-  args: { // ①
+  args: {
     page: 0,
     size: 5
   },
   // 페이지네이션
-  page: { // ②
+  page: {
     index: 0, // 현재 페이지 인덱스
     totalPages: 0, // 총 페이지
     totalElements: 0, // 총 주문 데이터 개수
@@ -19,13 +19,13 @@ const state = reactive({
 });
 
 // 목록 번호 추출
-const getListNum = (idx) => { // ③
+const getListNum = (idx) => {
 // 전체 데이터 수 - 인덱스 - 페이지당 데이터 수 × 페이지 인덱스
   return state.page.totalElements - idx - state.args.size * state.page.index;
 };
 
 // 데이터 로드
-const load = async (pageIdx) => { // ④
+const load = async (pageIdx) => {
   // 매개변수(페이지 인덱스)가 있으면 args 객체 업데이트
   if (pageIdx !== undefined) {
     state.args.page = pageIdx;

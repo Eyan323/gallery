@@ -29,7 +29,7 @@ const logoutAccount = async () => {
     <div class="navbar navbar-dark bg-dark text-white shadow-sm">
       <div class="container">
         <router-link to="/" class="navbar-brand">
-          <strong>Gallery</strong>
+          <strong>일본 소도시 여행 상품</strong>
           <!--메인으로 이동하는 경로의 라우터 링크 요소-->
         </router-link>
         <div class="menus d-flex gap-3">

@@ -3,41 +3,22 @@
 version: '3.8'
 
 services:
-  db:
-    image: mariadb:10.5 # 도커 허브에서서 MariaDB 10.5버전을 가져와서 컨테이너로 실행.
-    container_name: mariadb # 컨테이너 이름 명시(없을시 무작위로 붙음)
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpass
-      MYSQL_DATABASE: gallerydb
-      MYSQL_USER: galleryuser
-      MYSQL_PASSWORD: gallerypass
-    ports:
-      - "3306:3306" # 호스트 포트와 컨테이너 내부 포트를 연결, 즉 외부에서 DB 접속가능
-    volumes:
-      - db-data:/var/lib/mysql
-      - # 도커 볼륨: 도커 컨테이너와 호스트 간 또는 컨테이너 간에 데이터를 안전하게 저장하고 공유할 수 있게 해주는 기능
-        # 도커 볼륨을 사용하면 컨테이너가 사라져도 데이터는 계속 유지.
-    networks:
-      - gallery-net
-      - # 컨테이너 간의 네트워크 설정, 같은 네트워크 안에 있는 컨테이너들은 서로 통신이 가능하다.
-
   app:
-    build: .
-    container_name: gallery-app
+    build:
+      context: .
+    image:
+    container_name:
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mariadb://db:3306/gallerydb
-      SPRING_DATASOURCE_USERNAME: galleryuser
-      SPRING_DATASOURCE_PASSWORD: gallerypass
+      SPRING_DATASOURCE_URL:
+      SPRING_DATASOURCE_USERNAME:
+      SPRING_DATASOURCE_PASSWORD:
     ports:
       - "8080:8080"
-    depends_on:
-      - db
     networks:
       - gallery-net
 
 volumes:
   db-data:
-  # 도커가 관리하는 영구 저장소를 생성. 이름은 db-data
 
 networks:
   gallery-net:

@@ -18,7 +18,7 @@ public class BaseMemberService implements MemberService {
     @Override
     // @Override 애너테이션은 부모 혹은 인터페이스의 메소드를 정확히 재정의 하는지 컴파일러가 확인하는 애너테이션
     // 반드시 작성해야 하는건 아니지만 작성이 권장된다.
-    // 오타나 잘못된 작성을 컴파일 타임에 발견할수 있고, 다른사람이 코드를 읽을때 재정의 메서드라고 분명하게 명시함.
+    // 오타나 잘못된 작성을 컴파일 타임에 발견할수 있고, 다른사람이 코드를 읽을때 재정의 메서드라고 분명하게 알수있다.
     
     public void save(String name, String loginId, String loginPw) {
         // 솔트 생성

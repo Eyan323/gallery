@@ -18,6 +18,8 @@ import kr.co.wikibook.gallery.item.dto.ItemRead;
 // 상품 테이블
 
 // Entity는 JPA에서 테이블과 매핑되는 객체를 말한다.
+// JPA: Java Persistence API 자바 객체와 db를 연결하는 표준기술. db테이블과 자바 객체를 자동 매핑
+//      sql을 안써도 crud를 쉽게 수행 가능하게 해준다.
 
 @Getter
 @Entity
@@ -30,7 +32,7 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    // 아이디필드. @ID 애너테이션을 통해 해당 필드가 기본키이며, 테이블의 기본기 칼럼과 매핑된다.
+    // 아이디필드. @ID 애너테이션을 통해 해당 필드가 기본키이며, 테이블의 기본기 컬럼과 매핑된다.
     // GenerationType.IDENTITY 전략은 DB에 기본키 생성을 일임하는것이다.
 
     @Column(length = 50, nullable = false)

@@ -17,7 +17,7 @@ export const useAccountStore = defineStore("account", {
         setLoggedIn(val) {
             this.loggedIn = val;
         },
-        setAccessToken(val) { // ②
+        setAccessToken(val) {
             this.accessToken = val;
         },
     },
