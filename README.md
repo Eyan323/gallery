@@ -1,3 +1,9 @@
-본 프로젝트는
+본 프로젝트는 『 Vue 3와 스프링 부트로 시작하는 웹 개발 철저 입문』(저자: 최진)를 근거로 작성 하였습니다.
 
-본 프로젝트는 BACK - JAVA SPRINGBOOT, FRONT - VUE3으로 구성되었습니다.
+BACKEND - JAVA SPRINGBOOT, FRONTEND - VUE3으로 구성되었습니다.
+
+간단한 쇼핑몰 예제이며, 웹의 전체 흐름과 RESTFUL API 구현을 중점으로 학습 하였고 주석으로 상세한 해설을 첨부하였습니다.
+
+실 배포는 AWS EC2 + AWS RDB를 사용, 도커로 컨테이너화 하여 배포중입니다.
+
+최종 결과물 URL은 dh-project.o-r.kr 입니다.
