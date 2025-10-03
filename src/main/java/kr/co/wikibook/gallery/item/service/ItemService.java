@@ -7,6 +7,7 @@ public interface ItemService {
 
     // 전체 상품 목록 조회
     List<ItemRead> findAll();
+    // 리턴 타입으로 DTO를 지정한다. 엔티티가 아니다.
 
     // 상품 목록 조회(특정 아이디 리스트로 조회)
     List<ItemRead> findAll(List<Integer> ids);

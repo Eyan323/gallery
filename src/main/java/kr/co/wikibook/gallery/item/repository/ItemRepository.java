@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ItemRepository extends JpaRepository<Item, Integer> {
+    // Repository 사전적 의미로는 저장소, 여기서 직접적으로 DB와 상호작용을 담당한다.
+    // SQL 작성이 필요없이 JPA에서 기본적인 crud를 구현해준다.
     // JpaRepository를 상속 받아서 기본적인 crud 메서드를 사용가능.
     // JpaRepository<Item, Integer> 이경우는 item 엔티티로 item 테이블에 대응한다.
     // Integer는 pk의 자료형 보통 이런 형식으로 JpaRepository를 구현한다.
