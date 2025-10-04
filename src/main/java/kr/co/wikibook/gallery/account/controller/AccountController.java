@@ -30,6 +30,9 @@ public class AccountController {
 
     @PostMapping("/api/account/join")
     public ResponseEntity<?> join(@RequestBody AccountJoinRequest joinReq) {
+        // @RequestBody 이 애너테이션은 json 형식의 데이터를 자바 객체로 변환해준다.
+        // 따라서 개발자는 따로 변환을 할 필요 없이 스프링부트가 처리해주는 것, 매우 편하다.
+
         // 입력 값이 비어 있다면
         if (!StringUtils.hasLength(joinReq.getName()) || !StringUtils.hasLength(joinReq.getLoginId()) || !StringUtils.hasLength(joinReq.getLoginPw())) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

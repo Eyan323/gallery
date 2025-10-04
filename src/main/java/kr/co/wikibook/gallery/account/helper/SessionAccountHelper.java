@@ -34,6 +34,7 @@ public class SessionAccountHelper implements AccountHelper {
         }
 
         HttpUtils.setSession(req, AccountConstants.MEMBER_ID_NAME, member.getId());
+        // HttpServletRequest, 상수로 정해준 memberId, 사용자가 입력한 id를 전달한다.
         return member.getLoginId();
     }
 

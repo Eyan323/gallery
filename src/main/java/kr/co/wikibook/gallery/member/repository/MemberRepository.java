@@ -14,4 +14,5 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
     Optional<Member> findByLoginId(String loginId);
     // 조회된 회원 데이터가 없을수 있기 때문에 리턴 타입을 Optional 지정
     // Optional 사용시 null을 안전하게 처리하고 명시적으로 값이 없음을 나타낼 수 있다.
+    // 기존 방식이면 NullPointerException이 발생할수 있다. 그러나 Optional은 값이 없는 경우 그냥 실행하지 않고 무시한다.
 }
